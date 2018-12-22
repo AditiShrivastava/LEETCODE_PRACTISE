@@ -1,0 +1,45 @@
+QUESTION:
+125. Valid Palindrome
+Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
+
+Note: For the purpose of this problem, we define empty string as valid palindrome.
+
+Example 1:
+
+Input: "A man, a plan, a canal: Panama"
+Output: true
+
+Example 2:
+
+Input: "race a car"
+Output: false
+
+SOLUTION:
+(MYCODE-but taking time)
+class Solution {
+public:
+    bool isPalindrome(string s) 
+    {
+        if(s=="" || s.size()==1)
+            return true;
+        string temp;
+       for (auto it = s.begin(); it != s.end(); it++)
+        {
+           if(isalnum(*it))
+            temp.push_back(*it);
+        }
+        transform(temp.begin(), temp.end(), temp.begin(), ::tolower);      
+        temp.erase(remove(temp.begin(), temp.end(), ' '), temp.end());
+        string s1=temp;
+        reverse(s1.begin(),s1.end());
+        return (s1==temp);
+    }
+};
+
+BHAVI'S APPROACH
+HINTS-
+#1:you don't need to erase non-alphanumeric characters just skip them
+#2:Start traversing from both ends
+#3:Till i < j
+#4:i=0 and j=n-1
+#5:If you encounter spl character or space just increment i or decrement j... whichever be the case
