@@ -44,7 +44,7 @@ HINTS-
 #4:i=0 and j=n-1
 #5:If you encounter spl character or space just increment i or decrement j... whichever be the case
 
-MYCODE(This also taking more time abt 8ms,16ms)
+MYCODE(4ms,8ms,16ms)
 class Solution {
 public:
     bool isPalindrome(string s) 
