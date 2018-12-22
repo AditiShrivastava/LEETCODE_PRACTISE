@@ -43,3 +43,32 @@ HINTS-
 #3:Till i < j
 #4:i=0 and j=n-1
 #5:If you encounter spl character or space just increment i or decrement j... whichever be the case
+
+MYCODE(This also taking more time abt 8ms,16ms)
+class Solution {
+public:
+    bool isPalindrome(string s) 
+    {
+        int size=s.size();
+        if(s=="" || size==1)
+            return true;
+        int i=0,j=size-1;
+        string temp=s;
+        transform(temp.begin(), temp.end(), temp.begin(), ::tolower);
+       
+       for (;i<j;i++,j--)
+        {
+           while((!isalnum(temp[i]) || temp[i]==' ') && i<j )
+               i++;
+           if(i==j)
+               return true;
+           while(!isalnum(temp[j]) || temp[j]==' ')
+               j--;
+           if(temp[i]!=temp[j])
+               return false;
+        }
+              
+        
+        return true;
+    }
+};
